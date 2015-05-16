@@ -3,7 +3,7 @@
 	<name>JISD5601Pulse</name>
 	<comment></comment>
 	<projects>
-		<project>lpc_chip_8xx</project>
+		<project>CMSIS_CORE_LPC8xx</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

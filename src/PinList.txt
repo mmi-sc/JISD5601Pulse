@@ -1,0 +1,10 @@
+
+[PinNo.][PinName]               [Signal]    [Module]
+ 1       RESET/PIO0_5            RESET       SYSTEM
+ 2       PIO0_4                  CTOUT_0     SCT
+ 3       SWCLK/PIO0_3            PIO0_3      GPIO0
+ 4       SWDIO/PIO0_2            PIO0_2      GPIO0
+ 5       PIO0_1/ACMP_I2/CLKIN    I2C0_SDA    I2C0
+ 6       VDD                                 
+ 7       VSS                                 
+ 8       PIO0_0/ACMP_I1          I2C0_SCL    I2C0

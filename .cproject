@@ -38,6 +38,7 @@
 								<option id="com.crt.advproject.gcc.hdrlib.1314844017" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="Redlib" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.826942378" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS_CORE_LPC8xx/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc800_driver_lib/inc}&quot;"/>
 								</option>
 								<inputType id="com.crt.advproject.compiler.input.1686658368" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
@@ -48,6 +49,7 @@
 								<option id="com.crt.advproject.gas.hdrlib.196323697" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="Redlib" valueType="enumerated"/>
 								<option id="gnu.both.asm.option.include.paths.1876533686" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS_CORE_LPC8xx/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc800_driver_lib/inc}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2121635459" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 								<inputType id="com.crt.advproject.assembler.input.1982369573" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
@@ -176,9 +178,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="JISD5601Pulse.com.crt.advproject.projecttype.exe.985413761" name="Executable" projectType="com.crt.advproject.projecttype.exe"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="com.crt.config">
 		<projectStorage>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#13;
@@ -231,5 +230,14 @@
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/JISD5601Pulse"/>
 		</configuration>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.2107854021;com.crt.advproject.config.exe.debug.2107854021.;com.crt.advproject.gcc.exe.debug.680903194;com.crt.advproject.compiler.input.1686658368">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.2107854021;com.crt.advproject.config.exe.debug.2107854021.;com.crt.advproject.gas.exe.debug.1983692491;com.crt.advproject.assembler.input.1982369573">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>

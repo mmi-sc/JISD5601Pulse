@@ -56,13 +56,11 @@ static const uint8_t hex2char[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8'
 #define STOP_MRT(ch) (LPC_MRT ->Channel[ch].INTVAL &= ~(0x1UL << 31))
 
 #define START_SCT() (LPC_SCT->CTRL_U &= ~(1<<2))
-#define HALT_SCT() (LPC_SCT->CTRL_U |= (1<<2))
+#define HALT_SCT() {(LPC_SCT->CTRL_U |= (1<<2));LPC_SCT->OUTPUT &= ~1;}
 
 #define MAX_SPEED (300)
 
-const int downBtnMrtChannel = 0;
-const int upBtnMrtChannel = 1;
-const int pollingMrtChannel = 2;
+const int pollingMrtChannel = 0;
 
 const int downBtnPort = 2;		/* GPIO PIO0_2 */
 const int upBtnPort = 3;		/* GPIO PIO0_3 */
@@ -86,12 +84,15 @@ void updateSpeed(int16_t newSpeed) {
 		if ((LPC_SCT->CTRL_U & (1<<2)) == 0) {
 			HALT_SCT();
 		}
-		LPC_SCT->MATCH[0].U = counter_limit;
 		new_limit = counter_limit;
 	} else {
 		new_limit = (SystemCoreClock * 60 / (ppr * 637) * 30) / newSpeed;
 	}
 	LPC_SCT->MATCHREL[0].U = new_limit;
+	if (newSpeed > 0 && (LPC_SCT->CTRL_U & (1<<2)) != 0) {
+		LPC_SCT->MATCH[0].U = new_limit;
+		START_SCT();
+	}
 
 	uint8_t *pMsg;
 	int i;
@@ -99,34 +100,30 @@ void updateSpeed(int16_t newSpeed) {
 
 	pMsg = &string1[1][3];
 	for (i = 0, divisor = 100; i < 3; i++) {
-		*pMsg++ = ((newSpeed / divisor) % 10) + '0';
+		if ((newSpeed / divisor) > 0 || divisor == 1) {
+			*pMsg++ = ((newSpeed / divisor) % 10) + '0';
+		} else {
+			*pMsg++ = ' ';
+		}
 		divisor /= 10;
 	}
 	*pMsg++ = 'k';
-
-	for (i = 0, divisor = 1000; i < 4; i++) {
-		*pMsg++ = ((upButtonDuration / divisor) % 10) + '0';
-		divisor /= 10;
-	}
-//	*pMsg++ = 'p';
-//	*pMsg++ = 'h';
+	*pMsg++ = 'm';
+	*pMsg++ = '/';
+	*pMsg++ = 'h';
 //	uint8_t pin0 = LPC_GPIO_PORT->PIN0;
 //	*pMsg++ = ((pin0 & (1<<downBtnPort)) ? ' ' : 'D');
 //	*pMsg++ = ((pin0 & (1<<upBtnPort)) ? ' ' : 'U');
 
-//	pMsg = &string1[1][3];
-//	for (i = 0, divisor = 10000000; i < 8; i++) {
-//		*pMsg++ = ((new_limit / divisor) % 10) + '0';
-//		divisor /= 10;
-//	}
+	*pMsg++ = hex2char[ppr & 0xF];
 }
 
-int diffSpeed(uint32_t *duration, int diff) {
+int diffSpeed(uint32_t *duration, int diff, int repeat) {
 	int offset = 0;
 	if (*duration == 5) {
 		offset = diff;
-	} else if (*duration > 500 && ((*duration % 50) == 0)) {
-		offset = diff;
+	} else if (*duration > 500 && ((*duration % 100) == 0)) {
+		offset = repeat;
 		if (*duration > 1000) {
 			*duration -= 100;
 		}
@@ -135,49 +132,8 @@ int diffSpeed(uint32_t *duration, int diff) {
 }
 
 void MRT_IRQHandler(void) {
-	/*
-	if (LPC_MRT ->Channel[downBtnMrtChannel].STAT & MRT_STAT_IRQ_FLAG) {
-		if( LPC_GPIO_PORT->PIN0 & (1<<downBtnPort) ) {
-			downButtonDuration++;
-			if (downButtonDuration == 1 || downButtonDuration >= 10) {
-				if (speed > 0) {
-					speed--;
-				} else {
-					speed = 0;
-				}
-			} else {
-				// ignore until repeat
-			}
-		} else {
-			downButtonDuration = 0;
-			STOP_MRT(downBtnMrtChannel);
-		}
-		LPC_MRT ->Channel[downBtnMrtChannel].STAT = MRT_STAT_IRQ_FLAG;
-	}
-
-	if (LPC_MRT ->Channel[upBtnMrtChannel].STAT & MRT_STAT_IRQ_FLAG) {
-		if( LPC_GPIO_PORT->PIN0 & (1<<upBtnPort) ) {
-			upButtonDuration++;
-			if (upButtonDuration == 1 || upButtonDuration >= 10) {
-				if (speed == 0) {
-					START_SCT();
-					speed = initial_speed;
-				} else if (speed < MAX_SPEED) {
-					speed++;
-				} else {
-					// ignore
-				}
-			} else {
-				// ignore until repeat
-			}
-		} else {
-			upButtonDuration = 0;
-			STOP_MRT(upBtnMrtChannel);
-		}
-		LPC_MRT ->Channel[upBtnMrtChannel].STAT = MRT_STAT_IRQ_FLAG;
-	}
-	*/
 	if (LPC_MRT ->Channel[pollingMrtChannel].STAT & MRT_STAT_IRQ_FLAG) {
+		int newSpeed = speed;
 		uint8_t pin0 = (LPC_GPIO_PORT->PIN0 & ((1<<downBtnPort)|(1<<upBtnPort)));
 		if (lastPin0 != pin0) {
 			downButtonDuration = upButtonDuration = 0;
@@ -185,27 +141,29 @@ void MRT_IRQHandler(void) {
 		switch (pin0) {
 		case (1<<3):
 			downButtonDuration++;
-			speed += diffSpeed(&downButtonDuration, -1);
+			newSpeed += diffSpeed(&downButtonDuration, -1, -10);
 			break;
 		case (1<<2):
 			upButtonDuration++;
-			speed += diffSpeed(&upButtonDuration, +1);
+			newSpeed += diffSpeed(&upButtonDuration, +1, +5);
 			break;
 		default:
 			downButtonDuration = upButtonDuration = 0;
 			break;
 		}
 		lastPin0 = pin0;
-		if (speed < 0) {
-			speed = 0;
-		} else if (speed > MAX_SPEED) {
-			speed = MAX_SPEED;
+		if (newSpeed < 0) {
+			newSpeed = 0;
+		} else if (newSpeed > MAX_SPEED) {
+			newSpeed = MAX_SPEED;
+		}
+		if (newSpeed != speed) {
+			// recalculate SCT
+			speed = newSpeed;
+			updateSpeed(speed);
 		}
 		LPC_MRT ->Channel[pollingMrtChannel].STAT = MRT_STAT_IRQ_FLAG;
 	}
-
-	// recalculate SCT
-	updateSpeed(speed);
 		
 	return;
 }
@@ -234,20 +192,6 @@ void init_gpio(void) {
 
 	LPC_GPIO_PORT->DIR0 &= ~(1<<downBtnPort); // PIO0_2 -> IN
 	LPC_GPIO_PORT->DIR0 &= ~(1<<upBtnPort); // PIO0_3 -> IN
-
-/*
-	// down
-	LPC_SYSCON->PINTSEL[downIntrChannel] = downBtnPort; // PIO0_2 -> PININT0
-
-	LPC_PIN_INT->ISEL &= ~(1<<downIntrChannel);     // Edge detection
-	LPC_PIN_INT->IENF |= (1<<downIntrChannel);      // Falling Edge
-
-	// up
-	LPC_SYSCON->PINTSEL[upIntrChannel] = upBtnPort; // PIO0_3 -> PININT3
-
-	LPC_PIN_INT->ISEL &= ~(1<<upIntrChannel);     // Edge detection
-	LPC_PIN_INT->IENF |= (1<<upIntrChannel);      // Falling Edge
-*/
 }
 
 int waiting = 0;
@@ -267,18 +211,16 @@ int main(void) {
 
 	// IOCON Clock
 	IOCON_Init();
-    LPC_IOCON->PIO0_2 = 0x90;
-    LPC_IOCON->PIO0_3 = 0x90;
 
 	init_gpio();
 	switch (LPC_GPIO_PORT->PIN0 & ((1<<downBtnPort) | (1<<upBtnPort))) {
-	case (1<<2):
+	case (1<<3):
 		ppr = 8;	// 8 pulse per rotation if down button was asserted on reset
 		break;
-	case (1<<3):
+	case (1<<2):
 		ppr = 16;	// 16 pulse per rotation if up button was asserted on reset
 		break;
-	case ((1<<2)|(1<<3)):
+	case 0:
 		ppr = 20;// 20 pulse per rotation if down and up buttons were asserted on reset
 		break;
 	default:
@@ -286,8 +228,8 @@ int main(void) {
 		break;
 	}
 
-	uint32_t tintval[] = { SystemCoreClock/20, SystemCoreClock/20, SystemCoreClock/1000};
-	init_mrt(tintval, 3);
+	uint32_t tintval[] = { SystemCoreClock/1000};
+	init_mrt(tintval, 1);
 	START_MRT(pollingMrtChannel);
 
     LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 8);	// Clock for SCT
@@ -307,9 +249,6 @@ int main(void) {
 	pI2CApi->i2c_master_transmit_poll((
 			I2C_HANDLE_T*) hI2C, &i_param, &i_result);
 	wait_ms(1);
-
-	//NVIC_EnableIRQ(PININT0_IRQn);               //  Enable PININT0 IRQ
-	//NVIC_EnableIRQ(PININT1_IRQn);               //  Enable PININT1 IRQ
 
 	register int m;
     while(1) {

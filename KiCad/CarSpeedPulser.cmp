@@ -1,0 +1,108 @@
+Cmp-Mod V01 Created by Cvpcb (after 2015-may-01 BZR unknown)-product   date = 2015/05/18 22:44:38
+
+BeginCmp
+TimeStamp = /554DA48F;
+Reference = C1;
+ValeurCmp = 0.33u;
+IdModule  = Capacitors_ThroughHole:C_Disc_D3_P2.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /554DA473;
+Reference = C2;
+ValeurCmp = 4.7u;
+IdModule  = Capacitors_ThroughHole:C_Disc_D3_P2.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /555A9F16;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LEDs:LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F32FF;
+Reference = P1;
+ValeurCmp = CONN_01X02;
+IdModule  = Connect:AK300-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F19F4;
+Reference = Q1;
+ValeurCmp = 2SK4017;
+IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F1FE8;
+Reference = R1;
+ValeurCmp = 1k;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F2D71;
+Reference = R2;
+ValeurCmp = 100k;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F2223;
+Reference = R3;
+ValeurCmp = 10k;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /555AA04E;
+Reference = R4;
+ValeurCmp = 100;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /5559FDDD;
+Reference = SW1;
+ValeurCmp = RESET;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.2x6.3mm_RM2.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F79EC;
+Reference = SW2;
+ValeurCmp = UP;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.2x6.3mm_RM2.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /554F7940;
+Reference = SW3;
+ValeurCmp = DOWN;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.2x6.3mm_RM2.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /5559CC94;
+Reference = U1;
+ValeurCmp = LPC810;
+IdModule  = Sockets_DIP:DIP-8__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /555A2C55;
+Reference = U2;
+ValeurCmp = AE-AQM0802;
+IdModule  = pulser:AE-AQM0802;
+EndCmp
+
+BeginCmp
+TimeStamp = /555AB3C1;
+Reference = U3;
+ValeurCmp = TA48M033F;
+IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+EndCmp
+
+EndListe

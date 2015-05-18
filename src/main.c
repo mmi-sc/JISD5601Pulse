@@ -111,9 +111,6 @@ void updateSpeed(int16_t newSpeed) {
 	*pMsg++ = 'm';
 	*pMsg++ = '/';
 	*pMsg++ = 'h';
-//	uint8_t pin0 = LPC_GPIO_PORT->PIN0;
-//	*pMsg++ = ((pin0 & (1<<downBtnPort)) ? ' ' : 'D');
-//	*pMsg++ = ((pin0 & (1<<upBtnPort)) ? ' ' : 'U');
 
 	*pMsg++ = hex2char[ppr & 0xF];
 }
@@ -209,6 +206,19 @@ int main(void) {
 	SystemCoreClockUpdate();
     SwitchMatrix_Init();
 
+    // I2C
+	LPC_SYSCON ->SYSAHBCLKCTRL |= (1 << 5);
+	pI2CApi = (I2C_HANDLE_T) ROM_DRIVERS_PTR ->pI2CD;
+	hI2C = pI2CApi->i2c_setup(LPC_I2C_BASE, (uint32_t *)&iHandle[0]);
+	pI2CApi->i2c_set_bitrate( hI2C, SystemCoreClock, I2CCLK);
+
+	wait_ms(500);
+	i_param.num_bytes_send = initSeq[0];
+	i_param.buffer_ptr_send = (uint8_t *) &initSeq[1];
+	pI2CApi->i2c_master_transmit_poll((
+			I2C_HANDLE_T*) hI2C, &i_param, &i_result);
+	wait_ms(1);
+
 	// IOCON Clock
 	IOCON_Init();
 
@@ -235,20 +245,6 @@ int main(void) {
     LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 8);	// Clock for SCT
     sct_fsm_init();
     updateSpeed(0);
-    HALT_SCT();
-
-    // I2C
-	LPC_SYSCON ->SYSAHBCLKCTRL |= (1 << 5);
-	pI2CApi = (I2C_HANDLE_T) ROM_DRIVERS_PTR ->pI2CD;
-	hI2C = pI2CApi->i2c_setup(LPC_I2C_BASE, (uint32_t *)&iHandle[0]);
-	pI2CApi->i2c_set_bitrate( hI2C, SystemCoreClock, I2CCLK);
-
-	wait_ms(500);
-	i_param.num_bytes_send = initSeq[0];
-	i_param.buffer_ptr_send = (uint8_t *) &initSeq[1];
-	pI2CApi->i2c_master_transmit_poll((
-			I2C_HANDLE_T*) hI2C, &i_param, &i_result);
-	wait_ms(1);
 
 	register int m;
     while(1) {
@@ -258,7 +254,7 @@ int main(void) {
 			pI2CApi->i2c_master_transmit_poll(
 					(I2C_HANDLE_T*)hI2C, &i_param, &i_result);
 		}
-		wait_ms(500);
+		wait_ms(100);
     }
     return 0 ;
 }

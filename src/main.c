@@ -43,9 +43,9 @@ static uint8_t initSeq[11] = { 10,
 
 static uint8_t string1[4][11] = {
 		{ 3, S1W, 0x06, 0x80 },
-		{ 10, S1W, 0x40, 'H', 'e' ,'l', 'l', 'o', '.', ' ', ' '},
+		{ 10, S1W, 0x40, ' ', ' ' ,'0', 'k', 'm', '/', 'h', ' '},
 		{ 3, S1W, 0x06, 0xC0 },
-		{ 10, S1W, 0x40, 'W', 'o', 'r', 'l', 'd', '.', ' ', ' '},
+		{ 10, S1W, 0x40, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
 };
 
 static const uint8_t hex2char[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -107,12 +107,13 @@ void updateSpeed(int16_t newSpeed) {
 		}
 		divisor /= 10;
 	}
-	*pMsg++ = 'k';
-	*pMsg++ = 'm';
-	*pMsg++ = '/';
-	*pMsg++ = 'h';
-
-	*pMsg++ = hex2char[ppr & 0xF];
+//	*pMsg++ = 'k';
+//	*pMsg++ = 'm';
+//	*pMsg++ = '/';
+//	*pMsg++ = 'h';
+//
+//	*pMsg++ = hex2char[ppr & 0xF];
+	string1[1][10] = (ppr >> 2) + 'A' - 1;
 }
 
 int diffSpeed(uint32_t *duration, int diff, int repeat) {

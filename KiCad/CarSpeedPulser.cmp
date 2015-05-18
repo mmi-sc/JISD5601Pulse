@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (after 2015-may-01 BZR unknown)-product   date = 2015/05/18 22:44:38
+Cmp-Mod V01 Created by Cvpcb (after 2015-may-01 BZR unknown)-product   date = 2015/05/18 23:10:23
 
 BeginCmp
 TimeStamp = /554DA48F;
@@ -26,6 +26,13 @@ TimeStamp = /554F32FF;
 Reference = P1;
 ValeurCmp = CONN_01X02;
 IdModule  = Connect:AK300-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /5559F1FE;
+Reference = P2;
+ValeurCmp = CONN_01X05;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x05;
 EndCmp
 
 BeginCmp

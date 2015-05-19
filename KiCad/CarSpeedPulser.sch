@@ -487,11 +487,11 @@ F 3 "" H 6700 2350 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6700 2250 6700 1950
-Connection ~ 6700 1950
-Wire Wire Line
 	6700 2450 6700 2550
 Wire Wire Line
 	6700 2550 6950 2550
 Connection ~ 6950 2550
+Wire Wire Line
+	6700 2250 6700 2050
+Connection ~ 6700 2050
 $EndSCHEMATC

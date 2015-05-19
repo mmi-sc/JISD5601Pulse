@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (after 2015-may-01 BZR unknown)-product   date = 2015/05/18 23:10:23
+Cmp-Mod V01 Created by Cvpcb (after 2015-may-01 BZR unknown)-product   date = 2015/05/19 21:42:01
 
 BeginCmp
 TimeStamp = /554DA48F;
@@ -11,6 +11,13 @@ BeginCmp
 TimeStamp = /554DA473;
 Reference = C2;
 ValeurCmp = 4.7u;
+IdModule  = Capacitors_ThroughHole:C_Disc_D3_P2.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /555B4B24;
+Reference = C3;
+ValeurCmp = 0.1u;
 IdModule  = Capacitors_ThroughHole:C_Disc_D3_P2.5;
 EndCmp
 
@@ -71,6 +78,13 @@ IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
+TimeStamp = /555B3095;
+Reference = SP1;
+ValeurCmp = PiezoSpk;
+IdModule  = Connect:bornier2;
+EndCmp
+
+BeginCmp
 TimeStamp = /5559FDDD;
 Reference = SW1;
 ValeurCmp = RESET;
@@ -106,10 +120,10 @@ IdModule  = pulser:AE-AQM0802;
 EndCmp
 
 BeginCmp
-TimeStamp = /555AB3C1;
+TimeStamp = /555B31B5;
 Reference = U3;
-ValeurCmp = TA48M033F;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+ValeurCmp = XC6202P332TB;
+IdModule  = Housings_TO-92:TO-92_Inline_Wide;
 EndCmp
 
 EndListe

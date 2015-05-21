@@ -48,8 +48,6 @@ static uint8_t string1[4][11] = {
 		{ 10, S1W, 0x40, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
 };
 
-static const uint8_t hex2char[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-
 /************ I2C ************/
 
 #define START_MRT(ch) (LPC_MRT ->Channel[ch].INTVAL |= 0x1UL << 31)
@@ -107,13 +105,6 @@ void updateSpeed(int16_t newSpeed) {
 		}
 		divisor /= 10;
 	}
-//	*pMsg++ = 'k';
-//	*pMsg++ = 'm';
-//	*pMsg++ = '/';
-//	*pMsg++ = 'h';
-//
-//	*pMsg++ = hex2char[ppr & 0xF];
-	string1[1][10] = (ppr >> 2) + 'A' - 1;
 }
 
 int diffSpeed(uint32_t *duration, int diff, int repeat) {
@@ -226,18 +217,19 @@ int main(void) {
 	init_gpio();
 	switch (LPC_GPIO_PORT->PIN0 & ((1<<downBtnPort) | (1<<upBtnPort))) {
 	case (1<<3):
-		ppr = 8;	// 8 pulse per rotation if down button was asserted on reset
+		ppr = 2;	// 2 pulse per rotation if down button was asserted on reset
 		break;
 	case (1<<2):
-		ppr = 16;	// 16 pulse per rotation if up button was asserted on reset
+		ppr = 8;	// 8 pulse per rotation if up button was asserted on reset
 		break;
 	case 0:
-		ppr = 20;// 20 pulse per rotation if down and up buttons were asserted on reset
+		ppr = 16;	// 16 pulse per rotation if down and up buttons were asserted on reset
 		break;
 	default:
 		ppr = 4;
 		break;
 	}
+	string1[1][10] = ppr + 'A' - 1;
 
 	uint32_t tintval[] = { SystemCoreClock/1000};
 	init_mrt(tintval, 1);

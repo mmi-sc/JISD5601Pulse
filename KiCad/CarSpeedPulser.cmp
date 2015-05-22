@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (after 2015-may-01 BZR unknown)-product   date = 2015/05/19 21:42:01
+Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 2015/05/22 11:55:03
 
 BeginCmp
 TimeStamp = /554DA48F;
@@ -29,10 +29,10 @@ IdModule  = LEDs:LED-3MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /554F32FF;
+TimeStamp = /555E9DB4;
 Reference = P1;
-ValeurCmp = CONN_01X02;
-IdModule  = Connect:AK300-2;
+ValeurCmp = CONN_01X03;
+IdModule  = Socket_Strips:Socket_Strip_Angled_1x03;
 EndCmp
 
 BeginCmp

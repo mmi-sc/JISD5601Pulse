@@ -31,7 +31,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:CarSpeedPulser-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -132,17 +131,6 @@ F 1 "100k" V 2950 3650 50  0000 C CNN
 F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2880 3650 30  0001 C CNN
 F 3 "" H 2950 3650 30  0000 C CNN
 	1    2950 3650
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X02 P1
-U 1 1 554F32FF
-P 4000 3450
-F 0 "P1" H 4000 3600 50  0000 C CNN
-F 1 "CONN_01X02" V 4100 3450 50  0000 C CNN
-F 2 "Connect:AK300-2" H 4000 3450 60  0001 C CNN
-F 3 "" H 4000 3450 60  0000 C CNN
-	1    4000 3450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -304,12 +292,8 @@ Wire Wire Line
 Wire Wire Line
 	4050 1850 5000 1850
 Wire Wire Line
-	3800 3400 3800 3150
-Wire Wire Line
-	3800 3150 3350 3150
-Connection ~ 3350 3150
-Wire Wire Line
-	3800 3900 3800 3500
+	5100 3200 3350 3200
+Connection ~ 3350 3200
 Wire Wire Line
 	2950 2950 2950 1950
 Wire Wire Line
@@ -329,9 +313,9 @@ Wire Wire Line
 Wire Wire Line
 	6950 1350 6950 2650
 Wire Wire Line
-	7400 1550 7400 2050
+	7400 2050 7400 1550
 Wire Wire Line
-	7400 2050 6600 2050
+	6600 2050 7400 2050
 Wire Wire Line
 	6600 1850 7600 1850
 Wire Wire Line
@@ -353,7 +337,6 @@ Wire Wire Line
 	7350 3250 7700 3250
 Connection ~ 7700 3250
 Connection ~ 4800 3900
-Connection ~ 3800 3900
 Connection ~ 6950 2250
 $Comp
 L LED D1
@@ -410,7 +393,7 @@ F 3 "" H 3350 2500 60  0000 C CNN
 	1    3350 2500
 	1    0    0    -1  
 $EndComp
-Text Label 3600 3150 0    60   ~ 0
+Text Label 3500 3200 0    60   ~ 0
 PULSE
 $Comp
 L CONN_01X05 P2
@@ -494,4 +477,31 @@ Connection ~ 6950 2550
 Wire Wire Line
 	6700 2250 6700 2050
 Connection ~ 6700 2050
+$Comp
+L CONN_01X03 P1
+U 1 1 555E9DB4
+P 5300 3200
+F 0 "P1" H 5300 3400 50  0000 C CNN
+F 1 "CONN_01X03" V 5400 3200 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Angled_1x03" H 5300 3200 60  0001 C CNN
+F 3 "" H 5300 3200 60  0000 C CNN
+	1    5300 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3300 4800 3300
+Connection ~ 4800 3300
+$Comp
+L +12V #PWR010
+U 1 1 555EA485
+P 5100 2900
+F 0 "#PWR010" H 5100 2750 50  0001 C CNN
+F 1 "+12V" H 5100 3040 50  0000 C CNN
+F 2 "" H 5100 2900 60  0000 C CNN
+F 3 "" H 5100 2900 60  0000 C CNN
+	1    5100 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3100 5100 2900
 $EndSCHEMATC

@@ -31,6 +31,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:CarSpeedPulser-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -110,17 +111,6 @@ F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2880 3100 30  0001 C CN
 F 3 "" H 2950 3100 30  0000 C CNN
 	1    2950 3100
 	-1   0    0    1   
-$EndComp
-$Comp
-L R R3
-U 1 1 554F2223
-P 3350 2800
-F 0 "R3" V 3430 2800 50  0000 C CNN
-F 1 "10k" V 3350 2800 50  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 3280 2800 30  0001 C CNN
-F 3 "" H 3350 2800 30  0000 C CNN
-	1    3350 2800
-	1    0    0    -1  
 $EndComp
 $Comp
 L R R2
@@ -266,9 +256,7 @@ Wire Wire Line
 Wire Wire Line
 	2650 3450 3050 3450
 Wire Wire Line
-	3350 2950 3350 3250
-Wire Wire Line
-	3350 2650 3350 2500
+	3350 3200 3350 3250
 Wire Wire Line
 	3350 3900 3350 3650
 Wire Wire Line
@@ -293,7 +281,6 @@ Wire Wire Line
 	4050 1850 5000 1850
 Wire Wire Line
 	5100 3200 3350 3200
-Connection ~ 3350 3200
 Wire Wire Line
 	2950 2950 2950 1950
 Wire Wire Line
@@ -382,17 +369,6 @@ $EndComp
 Wire Wire Line
 	8050 4200 8300 4200
 Connection ~ 8300 4200
-$Comp
-L +12V #PWR09
-U 1 1 554F1C57
-P 3350 2500
-F 0 "#PWR09" H 3350 2350 50  0001 C CNN
-F 1 "+12V" H 3350 2640 50  0000 C CNN
-F 2 "" H 3350 2500 60  0000 C CNN
-F 3 "" H 3350 2500 60  0000 C CNN
-	1    3350 2500
-	1    0    0    -1  
-$EndComp
 Text Label 3500 3200 0    60   ~ 0
 PULSE
 $Comp
@@ -492,10 +468,10 @@ Wire Wire Line
 	5100 3300 4800 3300
 Connection ~ 4800 3300
 $Comp
-L +12V #PWR010
+L +12V #PWR09
 U 1 1 555EA485
 P 5100 2900
-F 0 "#PWR010" H 5100 2750 50  0001 C CNN
+F 0 "#PWR09" H 5100 2750 50  0001 C CNN
 F 1 "+12V" H 5100 3040 50  0000 C CNN
 F 2 "" H 5100 2900 60  0000 C CNN
 F 3 "" H 5100 2900 60  0000 C CNN

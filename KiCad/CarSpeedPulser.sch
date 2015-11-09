@@ -274,7 +274,7 @@ U 1 1 555B3095
 P 2650 3650
 F 0 "SP1" H 2650 3800 50  0000 C CNN
 F 1 "PiezoSpk" H 2650 3500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 2650 3650 60  0001 C CNN
+F 2 "Buzzers_Beepers:MagneticBuzzer_Kingstate_KCG0601" H 2650 3650 60  0001 C CNN
 F 3 "" H 2650 3650 60  0000 C CNN
 	1    2650 3650
 	0    1    1    0   

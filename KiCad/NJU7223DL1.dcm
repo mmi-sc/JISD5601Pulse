@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NJU7223DL1-33
+D 500mA Low Dropout Voltage Regulator, Fixed Output 3.3V, TO-252
+K 500mA LDO Regulator Fixed Positive
+F http://www.njr.com/semicon/PDF/NJU7223_E.pdf
+$ENDCMP
+#
+#End Doc Library

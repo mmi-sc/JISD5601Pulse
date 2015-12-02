@@ -45,7 +45,7 @@ static uint8_t string1[4][11] = {
 		{ 3, S1W, 0x06, 0x80 },
 		{ 10, S1W, 0x40, ' ', ' ' ,'0', 'k', 'm', '/', 'h', ' '},
 		{ 3, S1W, 0x06, 0xC0 },
-		{ 10, S1W, 0x40, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{ 10, S1W, 0x40, ' ', ' ', ' ', ' ', 'p', '/', 'r', ' '},
 };
 
 /************ I2C ************/
@@ -56,7 +56,7 @@ static uint8_t string1[4][11] = {
 #define START_SCT() (LPC_SCT->CTRL_U &= ~(1<<2))
 #define HALT_SCT() {(LPC_SCT->CTRL_U |= (1<<2));LPC_SCT->OUTPUT &= ~1;}
 
-#define MAX_SPEED (300)
+#define MAX_SPEED (500)
 
 const int pollingMrtChannel = 0;
 
@@ -203,6 +203,7 @@ int main(void) {
 	pI2CApi = (I2C_HANDLE_T) ROM_DRIVERS_PTR ->pI2CD;
 	hI2C = pI2CApi->i2c_setup(LPC_I2C_BASE, (uint32_t *)&iHandle[0]);
 	pI2CApi->i2c_set_bitrate( hI2C, SystemCoreClock, I2CCLK);
+	pI2CApi->i2c_set_timeout( hI2C, I2CCLK / 16);
 
 	wait_ms(500);
 	i_param.num_bytes_send = initSeq[0];
@@ -229,7 +230,12 @@ int main(void) {
 		ppr = 4;
 		break;
 	}
+#if ONE_LINE
 	string1[1][10] = ppr + 'A' - 1;
+#else
+	string1[3][5] = ((ppr >= 10) ? (ppr / 10) + '0' : ' ');
+	string1[3][6] = (ppr % 10) + '0';
+#endif
 
 	uint32_t tintval[] = { SystemCoreClock/1000};
 	init_mrt(tintval, 1);

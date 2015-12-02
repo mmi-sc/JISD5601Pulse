@@ -88,6 +88,7 @@ typedef struct I2CD_API {
 		(I2C_HANDLE_T* h_i2c, uint32_t Pclk,uint32_t bitrate);
 	uint32_t (*i2c_get_firmware_version)();
 	I2C_MODE_T (*i2c_get_status)(I2C_HANDLE_T* h_i2c);
+    ErrorCode_t (*i2c_set_timeout)(I2C_HANDLE_T *handle, uint32_t timeout);
 } I2CD_API_T;
 
 #define ROM_DRIVERS_PTR ((ROM *)(*((unsigned int *)0x1FFF1FF8)))

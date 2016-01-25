@@ -1,4 +1,4 @@
-update=2015/11/15 3:27:39
+update=2016/01/25 23:03:18
 version=1
 last_client=kicad
 [pcbnew]
@@ -37,7 +37,7 @@ SpiceUseNetNumbers=0
 LabSize=60
 [eeschema]
 version=1
-LibDir=
+LibDir=C:/TWESDK/Wks_ToCoNet/kicad-lib/library
 [eeschema/libraries]
 LibName1=LPC810
 LibName2=NJU7223DL1
@@ -71,3 +71,4 @@ LibName29=opto
 LibName30=atmel
 LibName31=contrib
 LibName32=valves
+LibName33=favorites

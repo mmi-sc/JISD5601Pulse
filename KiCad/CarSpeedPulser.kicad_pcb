@@ -268,7 +268,7 @@
       (net 14 /SCL))
     (pad 9 thru_hole circle (at 6 0) (size 1.2 1.2) (drill 0.65) (layers *.Cu *.Mask F.SilkS)
       (net 2 VDD))
-    (model favorites/AQM0802A-RN-GBW.wrl
+    (model favorites.3dshapes/AQM0802A-RN-GBW.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -309,7 +309,7 @@
       (net 16 /D))
     (pad 3 thru_hole circle (at 5.08 -5.08 90) (size 1.8 1.8) (drill 1) (layers *.Cu *.Mask F.SilkS)
       (net 18 "Net-(D3-Pad1)"))
-    (model favorites/TB401-1-3-E.wrl
+    (model favorites.3dshapes/TB401-1-3-E.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -337,7 +337,7 @@
       (net 17 /VSS))
     (pad 3 smd rect (at 0 0.55 180) (size 0.5 0.7) (layers B.Cu B.Paste B.Mask)
       (net 16 /D))
-    (model favorites/EMT3.wrl
+    (model favorites.3dshapes/EMT3.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -710,7 +710,7 @@
       (net 17 /VSS))
     (pad 1 thru_hole circle (at -3.25 -2.25) (size 1.524 1.524) (drill 0.762) (layers *.Cu *.Mask F.SilkS)
       (net 12 /PIO0_3))
-    (model favorites/DTS-6-V.wrl
+    (model favorites.3dshapes/DTS-6-V.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -738,7 +738,7 @@
       (net 17 /VSS))
     (pad 1 thru_hole circle (at -3.25 -2.25) (size 1.524 1.524) (drill 0.762) (layers *.Cu *.Mask F.SilkS)
       (net 13 /PIO0_2))
-    (model favorites/DTS-6-V.wrl
+    (model favorites.3dshapes/DTS-6-V.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -766,7 +766,7 @@
       (net 17 /VSS))
     (pad 1 thru_hole circle (at -3.25 -2.25) (size 1.524 1.524) (drill 0.762) (layers *.Cu *.Mask F.SilkS)
       (net 9 /#RST))
-    (model favorites/DTS-6-V.wrl
+    (model favorites.3dshapes/DTS-6-V.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -788,7 +788,7 @@
       (net 2 VDD))
     (pad 3 smd rect (at 2.3 -6.9 180) (size 1.5 2.5) (layers B.Cu B.Paste B.Mask)
       (net 17 /VSS))
-    (model favorites/TO-252.wrl
+    (model favorites.3dshapes/TO-252.wrl
       (at (xyz 0 -0.05905511811023622 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -911,7 +911,7 @@
       (net 9 /#RST))
     (pad 5 smd rect (at -0.95 1.4) (size 0.6 1.4) (layers B.Cu B.Paste B.Mask)
       (net 2 VDD))
-    (model favorites/SSOP5.wrl
+    (model favorites.3dshapes/SSOP5.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.3937007874015748 0.3937007874015748 0.3937007874015748))
       (rotate (xyz 0 0 0))

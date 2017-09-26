@@ -11,7 +11,8 @@
 #ifdef __USE_CMSIS
 #include "LPC8xx.h"
 #endif
-#include "nonuart_romi2c.h"
+#define INLINE inline
+#include "romapi_8xx.h"
 
 #include <cr_section_macros.h>
 #include "sct_fsm.h"
@@ -32,8 +33,8 @@ I2CD_API_T* pI2CApi;
 
 volatile uint8_t iHandle[96];
 
-I2C_PARAM i_param = { 0, 0, (uint8_t *) 0, (uint8_t *) 0, (void *)0, 1, {0, 0, 0 } };
-I2C_RESULT i_result = { 0, 0 };
+I2C_PARAM_T i_param = { 0, 0, (uint8_t *) 0, (uint8_t *) 0, (void *)0, 1, {0, 0, 0 } };
+I2C_RESULT_T i_result = { 0, 0 };
 
 #define S1A (0x3E)  // LCD address
 #define S1W (S1A<<1)
@@ -200,7 +201,7 @@ int main(void) {
 
     // I2C
 	LPC_SYSCON ->SYSAHBCLKCTRL |= (1 << 5);
-	pI2CApi = (I2C_HANDLE_T) ROM_DRIVERS_PTR ->pI2CD;
+	pI2CApi = (I2C_HANDLE_T) LPC_ROM_API ->pI2CD;
 	hI2C = pI2CApi->i2c_setup(LPC_I2C_BASE, (uint32_t *)&iHandle[0]);
 	pI2CApi->i2c_set_bitrate( hI2C, SystemCoreClock, I2CCLK);
 	pI2CApi->i2c_set_timeout( hI2C, I2CCLK / 16);

@@ -1,4 +1,4 @@
-update=2017/09/27 7:23:57
+update=2017/10/03 11:15:15
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,16 +25,6 @@ version=1
 NetIExt=net
 [general]
 version=1
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=./
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
 [eeschema]
 version=1
 LibDir=C:/TWESDK/Wks_ToCoNet/kicad-lib/library;C:/TWESDK/Wks_ToCoNet/kicad-library/library
@@ -75,3 +65,14 @@ LibName33=valves
 LibName34=favorites
 LibName35=switches
 LibName36=diode
+LibName37=R3111xxxx
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=./
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

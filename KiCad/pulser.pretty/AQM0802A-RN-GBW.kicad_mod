@@ -29,9 +29,9 @@
   (pad 7 thru_hole circle (at 3 0) (size 1.2 1.2) (drill 0.65) (layers *.Cu *.Mask F.SilkS))
   (pad 8 thru_hole circle (at 4.5 0) (size 1.2 1.2) (drill 0.65) (layers *.Cu *.Mask F.SilkS))
   (pad 9 thru_hole circle (at 6 0) (size 1.2 1.2) (drill 0.65) (layers *.Cu *.Mask F.SilkS))
-  (model favorites/AQM0802A-RN-GBW.wrl
+  (model favorites.3dshapes/AQM0802A-RN-GBW.wrl
     (at (xyz 0 0 0))
-    (scale (xyz 0.3937007874015748 0.3937007874015748 0.3937007874015748))
+    (scale (xyz 0.393701 0.393701 0.393701))
     (rotate (xyz 0 0 0))
   )
 )

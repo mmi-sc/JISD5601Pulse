@@ -1,4 +1,3 @@
 (fp_lib_table
-  (lib (name pulser)(type KiCad)(uri "$(KIPRJMOD)\\pulser.pretty")(options "")(descr ""))
-  (lib (name favorites)(type KiCad)(uri "$(KISYSMOD)\\..\\..\\kicad-lib\\favorites.pretty")(options "")(descr ""))
+  (lib (name pulser)(type KiCad)(uri "$(KIPRJMOD)/pulser.pretty")(options "")(descr ""))
 )

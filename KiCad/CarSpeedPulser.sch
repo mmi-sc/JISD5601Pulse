@@ -1,42 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:CarSpeedPulser-rescue
-LIBS:LPC810
-LIBS:NJU7223DL1
-LIBS:AQM0802
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:switches
-LIBS:diode
-LIBS:R3111xxxx
+EESchema Schematic File Version 4
 LIBS:CarSpeedPulser-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -51,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L C_Small C1
+L device:C_Small C1
 U 1 1 554DA48F
 P 2000 2500
 F 0 "C1" H 2010 2570 50  0000 L CNN
@@ -62,7 +26,7 @@ F 3 "" H 2000 2500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +12V #PWR01
+L power1:+12V #PWR01
 U 1 1 554DA4AC
 P 1500 2000
 F 0 "#PWR01" H 1500 1850 50  0001 C CNN
@@ -73,7 +37,7 @@ F 3 "" H 1500 2000 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Q_NMOS_SGD Q1
+L device:Q_NMOS_SGD Q1
 U 1 1 554F19F4
 P 4350 3500
 F 0 "Q1" H 4650 3550 50  0000 R CNN
@@ -84,29 +48,29 @@ F 3 "" H 4350 3500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R1
+L device:R R1
 U 1 1 554F1FE8
 P 4050 3150
 F 0 "R1" V 4130 3150 50  0000 C CNN
 F 1 "1k" V 4050 3150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3980 3150 30  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 3980 3150 30  0001 C CNN
 F 3 "" H 4050 3150 30  0000 C CNN
 	1    4050 3150
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R2
+L device:R R2
 U 1 1 554F2D71
 P 4050 3700
 F 0 "R2" V 4130 3700 50  0000 C CNN
 F 1 "1M" V 4050 3700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3980 3700 30  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 3980 3700 30  0001 C CNN
 F 3 "" H 4050 3700 30  0000 C CNN
 	1    4050 3700
 	1    0    0    -1  
 $EndComp
 $Comp
-L SW_Push SW3
+L CarSpeedPulser-rescue:SW_Push SW3
 U 1 1 554F7940
 P 5900 2550
 F 0 "SW3" H 6050 2660 50  0000 C CNN
@@ -117,7 +81,7 @@ F 3 "" H 5900 2550 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L SW_Push SW2
+L CarSpeedPulser-rescue:SW_Push SW2
 U 1 1 554F79EC
 P 5500 2550
 F 0 "SW2" H 5650 2660 50  0000 C CNN
@@ -128,18 +92,18 @@ F 3 "" H 5500 2550 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L LPC810 U1
+L LPC810:LPC810 U1
 U 1 1 5559CC94
 P 6900 2050
 F 0 "U1" H 6900 2450 50  0000 C CNN
 F 1 "LPC810" H 6900 2350 50  0000 C CNN
-F 2 "Sockets_DIP:DIP-8__300" H 6900 1800 50  0001 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 6900 1800 50  0001 C CNN
 F 3 "DOCUMENTATION" H 6900 1750 50  0001 C CNN
 	1    6900 2050
 	1    0    0    -1  
 $EndComp
 $Comp
-L SW_Push SW1
+L CarSpeedPulser-rescue:SW_Push SW1
 U 1 1 5559FDDD
 P 5150 2550
 F 0 "SW1" H 5300 2660 50  0000 C CNN
@@ -150,7 +114,7 @@ F 3 "" H 5150 2550 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L VDD #PWR02
+L power1:VDD #PWR02
 U 1 1 555A13C5
 P 9000 950
 F 0 "#PWR02" H 9000 800 50  0001 C CNN
@@ -161,7 +125,7 @@ F 3 "" H 9000 950 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR03
+L power1:VDD #PWR03
 U 1 1 555A148D
 P 3100 1150
 F 0 "#PWR03" H 3100 1000 50  0001 C CNN
@@ -172,29 +136,29 @@ F 3 "" H 3100 1150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D1
+L device:LED D1
 U 1 1 555A9F16
 P 3650 3500
 F 0 "D1" H 3650 3600 50  0000 C CNN
 F 1 "LED" H 3650 3400 50  0000 C CNN
-F 2 "LEDs:LED_1206_HandSoldering" H 3650 3500 60  0001 C CNN
+F 2 "LED_SMD:LED_1206_3216Metric_Pad1.07x1.80mm_HandSolder" H 3650 3500 60  0001 C CNN
 F 3 "" H 3650 3500 60  0000 C CNN
 	1    3650 3500
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R3
+L device:R R3
 U 1 1 555AA04E
 P 3650 2950
 F 0 "R3" V 3730 2950 50  0000 C CNN
 F 1 "680" V 3650 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3580 2950 30  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 3580 2950 30  0001 C CNN
 F 3 "" H 3650 2950 30  0000 C CNN
 	1    3650 2950
 	-1   0    0    1   
 $EndComp
 $Comp
-L PWR_FLAG #FLG04
+L power1:PWR_FLAG #FLG04
 U 1 1 555AAE89
 P 2250 3050
 F 0 "#FLG04" H 2250 3145 50  0001 C CNN
@@ -207,7 +171,7 @@ $EndComp
 Text Label 5700 3250 0    60   ~ 0
 PULSE
 $Comp
-L Conn_01x05 P2
+L CarSpeedPulser-rescue:Conn_01x05 P2
 U 1 1 5559F1FE
 P 6100 1000
 F 0 "P2" H 6100 1300 50  0000 C CNN
@@ -218,18 +182,18 @@ F 3 "" H 6100 1000 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L AP2204RB-3.3 U3
+L regul:AP2204RB-3.3 U3
 U 1 1 555B31B5
 P 2600 2300
 F 0 "U3" H 2600 2400 40  0000 C CNN
 F 1 "NJM78L33SU3" H 2600 2500 40  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-89-3_Handsoldering" H 2600 2400 35  0001 C CIN
+F 2 "Package_TO_SOT_SMD:SOT-89-3_Handsoldering" H 2600 2400 35  0001 C CIN
 F 3 "" H 2600 2300 60  0000 C CNN
 	1    2600 2300
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C3
+L device:C_Small C3
 U 1 1 555B4B24
 P 7800 2400
 F 0 "C3" H 7810 2470 50  0000 L CNN
@@ -240,7 +204,7 @@ F 3 "" H 7800 2400 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x03 P1
+L CarSpeedPulser-rescue:Conn_01x03 P1
 U 1 1 555E9DB4
 P 6400 3250
 F 0 "P1" H 6400 3450 50  0000 C CNN
@@ -251,7 +215,7 @@ F 3 "" H 6400 3250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +12V #PWR05
+L power1:+12V #PWR05
 U 1 1 555EA485
 P 6200 2950
 F 0 "#PWR05" H 6200 2800 50  0001 C CNN
@@ -262,7 +226,7 @@ F 3 "" H 6200 2950 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AQM0802A-RN-GBW U2
+L AQM0802:AQM0802A-RN-GBW U2
 U 1 1 563FF79A
 P 10350 1600
 F 0 "U2" H 10350 1050 50  0000 C CNN
@@ -277,7 +241,7 @@ SCL
 Text Label 7850 2200 0    60   ~ 0
 SDA
 $Comp
-L C_Small C5
+L device:C_Small C5
 U 1 1 564021C2
 P 9400 1400
 F 0 "C5" H 9410 1470 50  0000 L CNN
@@ -288,7 +252,7 @@ F 3 "" H 9400 1400 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C4
+L device:C_Small C4
 U 1 1 5640246F
 P 9200 1300
 F 0 "C4" H 9210 1370 50  0000 L CNN
@@ -299,29 +263,29 @@ F 3 "" H 9200 1300 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R4
+L device:R R4
 U 1 1 56404CAB
 P 8450 1500
 F 0 "R4" V 8530 1500 50  0000 C CNN
 F 1 "10k" V 8450 1500 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 8380 1500 30  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 8380 1500 30  0001 C CNN
 F 3 "" H 8450 1500 30  0000 C CNN
 	1    8450 1500
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R5
+L device:R R5
 U 1 1 56404FAB
 P 8650 1500
 F 0 "R5" V 8730 1500 50  0000 C CNN
 F 1 "10k" V 8650 1500 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 8580 1500 30  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 8580 1500 30  0001 C CNN
 F 3 "" H 8650 1500 30  0000 C CNN
 	1    8650 1500
 	-1   0    0    1   
 $EndComp
 $Comp
-L C_Small C2
+L device:C_Small C2
 U 1 1 56481F6D
 P 3100 2500
 F 0 "C2" H 3110 2570 50  0000 L CNN
@@ -352,7 +316,7 @@ CAP1N
 Text Label 9600 1500 0    60   ~ 0
 CAP1P
 $Comp
-L 1N4148 D2
+L diode:1N4148 D2
 U 1 1 56A632A2
 P 1750 2300
 F 0 "D2" H 1750 2400 50  0000 C CNN
@@ -363,7 +327,7 @@ F 3 "" H 1750 2300 50  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L D D3
+L device:D D3
 U 1 1 56A648ED
 P 2600 4200
 F 0 "D3" H 2600 4300 50  0000 C CNN
@@ -378,7 +342,7 @@ Vin
 Text Label 4700 3250 0    60   ~ 0
 D
 $Comp
-L PWR_FLAG #FLG06
+L power1:PWR_FLAG #FLG06
 U 1 1 56A6DD49
 P 2250 4450
 F 0 "#FLG06" H 2250 4545 50  0001 C CNN
@@ -389,18 +353,18 @@ F 3 "" H 2250 4450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R3111xxxx U4
+L R3111xxxx:R3111xxxx U4
 U 1 1 56A7058F
 P 4200 1500
 F 0 "U4" H 4200 1800 60  0000 C CNN
 F 1 "R3111N211A" H 4200 1200 60  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23-5_HandSoldering" H 4200 1500 60  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5_HandSoldering" H 4200 1500 60  0001 C CNN
 F 3 "http://akizukidenshi.com/download/ds/ricoh/r3111x-j.pdf" H 4200 1500 60  0001 C CNN
 	1    4200 1500
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R6
+L device:R R6
 U 1 1 56A726C3
 P 5600 1650
 F 0 "R6" V 5680 1650 50  0000 C CNN
@@ -411,7 +375,7 @@ F 3 "" H 5600 1650 30  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L PWR_FLAG #FLG07
+L power1:PWR_FLAG #FLG07
 U 1 1 59C9EC89
 P 2200 2150
 F 0 "#FLG07" H 2200 2245 50  0001 C CNN
@@ -423,21 +387,21 @@ F 3 "" H 2200 2150 60  0000 C CNN
 $EndComp
 Connection ~ 2600 2750
 Wire Wire Line
-	2600 2600 2600 4050
+	2600 2600 2600 2750
 Wire Wire Line
 	3100 2750 3100 2600
 Wire Wire Line
-	2000 2750 3100 2750
+	2000 2750 2600 2750
 Wire Wire Line
 	2000 2600 2000 2750
 Connection ~ 3100 2300
 Wire Wire Line
-	3100 1150 3100 2400
+	3100 1150 3100 1500
 Wire Wire Line
 	2900 2300 3100 2300
 Connection ~ 2000 2300
 Wire Wire Line
-	1900 2300 2300 2300
+	1900 2300 2000 2300
 Wire Wire Line
 	1500 2000 1500 2300
 Wire Wire Line
@@ -447,11 +411,11 @@ Wire Wire Line
 Wire Wire Line
 	4450 3950 4450 3700
 Wire Wire Line
-	4050 3300 4050 3550
+	4050 3300 4050 3500
 Wire Wire Line
 	4050 3950 4050 3850
 Wire Wire Line
-	8050 3950 2600 3950
+	8050 3950 5900 3950
 Connection ~ 4450 3950
 Connection ~ 4050 3500
 Wire Wire Line
@@ -463,19 +427,19 @@ Wire Wire Line
 Wire Wire Line
 	5500 2100 6100 2100
 Wire Wire Line
-	5150 1050 5150 2350
+	5150 1050 5150 1900
 Wire Wire Line
-	5150 1900 6100 1900
+	5150 1900 5600 1900
 Wire Wire Line
 	4050 3000 4050 2000
 Wire Wire Line
-	3650 2000 6100 2000
+	3650 2000 4050 2000
 Wire Wire Line
 	5150 2750 5150 3050
 Wire Wire Line
-	5150 3050 5900 3050
+	5150 3050 5500 3050
 Wire Wire Line
-	5900 2750 5900 3950
+	5900 2750 5900 3050
 Wire Wire Line
 	5500 2750 5500 3050
 Connection ~ 5500 3050
@@ -483,17 +447,17 @@ Connection ~ 5900 3050
 Wire Wire Line
 	8050 2000 7700 2000
 Wire Wire Line
-	8050 1400 8050 3950
+	8050 1400 8050 1700
 Wire Wire Line
-	9000 2100 9000 950 
+	9000 2100 9000 1600
 Wire Wire Line
-	7700 2100 9000 2100
+	7700 2100 7800 2100
 Wire Wire Line
-	7700 1900 9750 1900
+	7700 1900 7900 1900
 Wire Wire Line
-	9000 1600 9750 1600
+	9000 1600 9600 1600
 Wire Wire Line
-	7700 2200 9500 2200
+	7700 2200 8250 2200
 Connection ~ 5900 3950
 Wire Wire Line
 	3650 2800 3650 2000
@@ -546,11 +510,9 @@ Wire Wire Line
 Wire Wire Line
 	9750 1300 9300 1300
 Wire Wire Line
-	8450 1300 9100 1300
+	8450 1300 8650 1300
 Wire Wire Line
 	9500 1400 9750 1400
-Wire Wire Line
-	9300 1400 9300 1400
 Wire Wire Line
 	9300 1400 9300 1500
 Wire Wire Line
@@ -591,7 +553,7 @@ Wire Wire Line
 Wire Wire Line
 	2250 4450 2250 4500
 Wire Wire Line
-	2250 4500 6100 4500
+	2250 4500 2600 4500
 Connection ~ 2600 4500
 Wire Wire Line
 	6100 4500 6100 3350
@@ -609,11 +571,11 @@ Wire Wire Line
 Connection ~ 2200 2300
 Connection ~ 1500 2300
 Wire Wire Line
-	1150 2300 1600 2300
+	1150 2300 1500 2300
 Wire Wire Line
 	1150 2050 1150 2300
 $Comp
-L PWR_FLAG #FLG08
+L power1:PWR_FLAG #FLG08
 U 1 1 555A43B7
 P 1150 2050
 F 0 "#FLG08" H 1150 2145 50  0001 C CNN
@@ -626,7 +588,7 @@ $EndComp
 Wire Wire Line
 	3300 1600 3300 3950
 $Comp
-L VDD #PWR09
+L power1:VDD #PWR09
 U 1 1 56A733F9
 P 5600 1100
 F 0 "#PWR09" H 5600 950 50  0001 C CNN
@@ -647,4 +609,76 @@ Wire Wire Line
 Wire Wire Line
 	3600 1500 3100 1500
 Connection ~ 3100 1500
+Wire Wire Line
+	2600 2750 2600 3100
+Wire Wire Line
+	2600 2750 3100 2750
+Wire Wire Line
+	3100 2300 3100 2400
+Wire Wire Line
+	2000 2300 2200 2300
+Wire Wire Line
+	4450 3950 4050 3950
+Wire Wire Line
+	4050 3500 4050 3550
+Wire Wire Line
+	5500 3050 5900 3050
+Wire Wire Line
+	5900 3050 5900 3950
+Wire Wire Line
+	5900 3950 4450 3950
+Wire Wire Line
+	4050 2000 6000 2000
+Wire Wire Line
+	4050 3950 3650 3950
+Wire Wire Line
+	2600 3100 2600 3950
+Wire Wire Line
+	5900 1900 6100 1900
+Wire Wire Line
+	6000 2000 6100 2000
+Wire Wire Line
+	7900 1900 8450 1900
+Wire Wire Line
+	8050 2000 8050 2600
+Wire Wire Line
+	8250 2200 8650 2200
+Wire Wire Line
+	8050 2600 8050 3950
+Wire Wire Line
+	7800 2100 9000 2100
+Wire Wire Line
+	9600 1600 9750 1600
+Wire Wire Line
+	9000 1600 9000 1300
+Wire Wire Line
+	8050 1700 8050 2000
+Wire Wire Line
+	9000 1300 9100 1300
+Wire Wire Line
+	9000 1300 9000 950 
+Wire Wire Line
+	8450 1900 9750 1900
+Wire Wire Line
+	8650 1300 9000 1300
+Wire Wire Line
+	8650 2200 9500 2200
+Wire Wire Line
+	3650 3950 3300 3950
+Wire Wire Line
+	2600 3950 2600 4050
+Wire Wire Line
+	2600 4500 6100 4500
+Wire Wire Line
+	3300 3950 2600 3950
+Wire Wire Line
+	5150 1900 5150 2350
+Wire Wire Line
+	5600 1900 5900 1900
+Wire Wire Line
+	2200 2300 2300 2300
+Wire Wire Line
+	1500 2300 1600 2300
+Wire Wire Line
+	3100 1500 3100 2300
 $EndSCHEMATC

@@ -1,0 +1,10 @@
+H=V*(n1*N2)/(60s*60kmph)
+
+H:frequency(Hz)
+V:speed(kmph)
+n1:pulse per rotation
+N2:rotation per 60kmph
+
+R=f/(2*H)
+R:timer count(count/s)
+f:clock frequency(Hz)
